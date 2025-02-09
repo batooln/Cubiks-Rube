@@ -1,5 +1,5 @@
 /******************************************************************************/
-/* Copyright © 2024, Spencer Hiscox, Eitan Tesciuba, Batool Noweir, Dennis Lee.
+/* Copyright Â© 2024, Spencer Hiscox, Eitan Tesciuba, Batool Noweir, Dennis Lee.
 	 All rights reserved.
 
 
@@ -97,7 +97,7 @@ const int _ARM_ENCODER_DOWN_POS		= 100,	 //motor encoder value when primary arma
 					_SCANNING_ARM_RET_POS		= 0,	 //motor encoder value when colour sensor armature fully RETRACTED (clear of cube)
 					_SCANNING_ARM_EXT_POS		= -780, //motor encoder value when colour sensor armature fully EXTENDED (in position for scanning)
 		//FURTHER TESTING REQUIRED
-					_BASE_UNIT_ANGLE				= 256;	//motor encoder value to rotate 90� accounting for gear reduction between motor and cube base (theo: 270, gear reduction 3:1)
+					_BASE_UNIT_ANGLE				= 256;	//motor encoder value to rotate 90° accounting for gear reduction between motor and cube base (theo: 270, gear reduction 3:1)
 
 //CUBE VIRTUAL MODEL UPDATE OPERATIONS
 enum operation {
@@ -152,7 +152,7 @@ bool movColour(const short int dir);																		//extends / retracts the c
 bool pullArmature(void);																												//retracts the armature in order to flip cube
 bool rotateArmature(const unsigned short int dir);															//raises / lowers the primary armature (holds / releases cube)
 bool flipRecover(const unsigned short int dir);																	//moves primary armature to _UP or _DOWN position (<dir>)
-bool rotateCube(const unsigned short int dir,																		//rotates the base 90°, <num> times in <dir> direction
+bool rotateCube(const unsigned short int dir,																		//rotates the base 90Â°, <num> times in <dir> direction
 								const unsigned short int num=_UNITY);																	//ensuring primary armature is not holding cube
 bool flipCube(const unsigned short int num=_UNITY);															//flips cube (primary arm) drops P-Arm IF REQ'D
 /*
@@ -636,7 +636,7 @@ bool flipRecover(const unsigned short int dir)
 /*This function checks the position of the primary armature and calls functions
 like flipRecover() or rotateArmature() IF REQUIRED to make sure the armature
 is not in position to hold the cube (which would rotate a face). The function
-then rotates the "holder" (base) on which the cube is resting 90° <num> times
+then rotates the "holder" (base) on which the cube is resting 90Â° <num> times
 in <dir> direction. If _RIGHT is passed as <dir>, the cube should rotate
 clockwise (_CW can also be used). If _LEFT is passed as <dir>, it should rotate
 counter-clockwise (_CCW can also be used). The rotation should occur at
@@ -722,7 +722,7 @@ bool flipCube(const unsigned short int num) {
 /*Checks the current position of the primary armature and executes
 functions like flipRecover() or rotateArmature() to ensure the primary
 armature is in the correct position, then rotates the bottom row of the
-cube 90° or 180° (depending on if <num> == 1 or <num> == 2) to the _LEFT or
+cube 90Â° or 180Â° (depending on if <num> == 1 or <num> == 2) to the _LEFT or
 _RIGHT (<dir>) at _FACE_ROT_SPD. Does NOT move armature back to nominal
 (retracted / _UP) position once the rotation has completed.
 Returns TRUE if all operations completed successfully, FALSE otherwise.*/
@@ -763,7 +763,7 @@ bool rotateFace(const unsigned short int dir,
 
 
 		//THESE FUNCTIONS ALL PERTAIN TO DYNAMIC SOLVING (ANY CUBE CONFIGURATION) -- SKIP FOR NOW
-				/*This function coordinates the rotation of the cube 360° with the scanning
+				/*This function coordinates the rotation of the cube 360Â° with the scanning
 				of individual coloured squares on the cube face, encodes the read values
 				and writes the appropriate value to the appropriate index in the <pattern_map>
 				matrix.
@@ -780,22 +780,22 @@ bool rotateFace(const unsigned short int dir,
 
 				/*this function needs to follow the full cube-scanning algorithm:
 				1.	Extends colour sensor
-				2.	Rotates cube 360° to scan corners / sides of top face
+				2.	Rotates cube 360Â° to scan corners / sides of top face
 				3.	Retracts Colour sensor
 				4.	Flips cube 1x
 				5.	LOOP TO 1 (REPEAT 4x)
 
-				-	Rotate Cube 90° (right, let's say)
+				-	Rotate Cube 90Â° (right, let's say)
 				-	Flip 1x
 				-	Extend colour sensor
-				-	Rotate 360° (scan)
+				-	Rotate 360Â° (scan)
 				-	Retract colour sensor
 				-	Flip 2x
 				-	Extend Colour sensor
-				-	Rotate 360° (scan)
+				-	Rotate 360Â° (scan)
 				-	Retract Colour sensor
 				-	Flip 1x
-						"	Rotate Cube 90° (left, if the first step was right ' this should put
+						"	Rotate Cube 90Â° (left, if the first step was right ' this should put
 						cube back in "default" orientation)
 				Making sure to scan each square into the appropriate array index as it does.
 				Verifies data contents of <pattern_map> after scanning is complete (should
@@ -845,7 +845,7 @@ bool rotateFace(const unsigned short int dir,
 				after the cube has been physically manipulated. The final argument
 				<faceRotate> is a 1x2 array of the form [<DIR>, <NUM>] where <DIR>
 				specifies the direction of the face rotation (_LEFT or _RIGHT) and <NUM>
-				specifies the number of 90° rotations to perform in that direction.
+				specifies the number of 90Â° rotations to perform in that direction.
 				The function will declare an array called "instructions" which MUST HAVE
 				THE FORM [<DIR_ROT1>, <NUM_ROTs1>, <NUM_FLIPS>]
 				Where <DIR_ROT1> specifies the direction of cube rotation prior to flipping
