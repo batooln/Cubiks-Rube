@@ -16,3 +16,5 @@ Achieved a fully functional robot that enhances the cube-solving process for var
 Developed technical skills in SOLIDWORKS, C++, and RobotC.
 Gained experience in leadership, teamwork, and time management.
 Built a solid foundation for future mechanical design and engineering projects.
+
+Check out the file CR_backend to see the backend code of the project.
